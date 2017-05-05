@@ -10,7 +10,7 @@ const resetForms = () => {
 }
 
 const signUpSuccess = (data) => {
-  console.log(data)
+  console.log(data + 'sign-up success')
   // $('#sign-up').addClass('hidden')
   resetForms()
   // $('#sign-up').addClass('hidden')
@@ -22,7 +22,7 @@ const signUpFailure = (error) => {
 }
 
 const signInSuccess = (data) => {
-  console.log(data)
+  console.log('sign in success')
   store.user = data.user
   // $('#sign-in').addClass('hidden')
   // $('#change-password').removeClass('hidden')
@@ -69,6 +69,43 @@ const signOutFailure = (error) => {
   console.error(error)
   resetForms()
 }
+
+// const getAllRecipesSuccess = (data) => {
+//   // console.log(data)
+//   $('#all-recipes').text(data.recipes)
+// }
+//
+// const getAllRecipesFailure = (error) => {
+//   console.error(error)
+// }
+//
+// const createRecipeSuccess = (data) => {
+//   // console.log(data)
+//   $('#all-recipes').text('')
+//   store.recipe = data.recipe
+//   console.log(data.recipe)
+// }
+//
+// const createRecipeFailure = (error) => {
+//   console.error(error)
+// }
+//
+// const getRecipeSuccess = (data) => {
+//   console.log(data.recipe.id)
+// }
+//
+// const getRecipeFailure = (error) => {
+//   console.error(error)
+// }
+//
+// const updateRecipeSuccess = (response) => {
+//   // console.log('response is', response)
+// }
+//
+// const updateRecipeFailure = (error) => {
+//   console.error('uh what' + error)
+// }
+//
 
 module.exports = {
   signUpSuccess,

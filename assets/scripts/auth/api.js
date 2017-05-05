@@ -42,71 +42,56 @@ const signOut = (data) => {
   })
 }
 
-const getAllGames = () => {
-  // console.log('get index', data)
-  return $.ajax({
-    url: config.apiOrigin + '/games/',
-    method: 'GET',
-    headers: {
-      Authorization: 'Token token=' + store.user.token
-    }
-  })
-}
-
-const createGame = (data) => {
-  event.preventDefault()
-  return $.ajax({
-    url: config.apiOrigin + '/games/',
-    method: 'POST',
-    headers: {
-      Authorization: 'Token token=' + store.user.token
-    }
-  })
-}
-
-const getId = (id) => {
-  event.preventDefault()
-  return $.ajax({
-    url: config.apiOrigin + '/games/' + id,
-    method: 'GET',
-    headers: {
-      Authorization: 'Token token=' + store.user.token
-    }
-  })
-}
-
-const joinGame = (data) => {
-  event.preventDefault()
-  return $.ajax({
-    url: config.apiOrigin + '/games/' + store.user.id,
-    method: 'PATCH',
-    headers: {
-      Authorization: 'Token token=' + store.user.token
-    }
-  })
-}
-
-const updateGame = (data) => {
-  // console.log(data + 'PATCH TEST DATA')
-  event.preventDefault()
-  return $.ajax({
-    url: config.apiOrigin + '/games/' + store.game.id,
-    method: 'PATCH',
-    headers: {
-      Authorization: 'Token token=' + store.user.token
-    },
-    data: data
-  })
-}
+// const getAllRecipes = () => {
+//   // console.log('get index', data)
+//   return $.ajax({
+//     url: config.apiOrigin + '/recipes/',
+//     method: 'GET',
+//     headers: {
+//       Authorization: 'Token token=' + store.user.token
+//     }
+//   })
+// }
+//
+// const createRecipe = (data) => {
+//   event.preventDefault()
+//   return $.ajax({
+//     url: config.apiOrigin + '/recipes/',
+//     method: 'POST',
+//     headers: {
+//       Authorization: 'Token token=' + store.user.token
+//     }
+//   })
+// }
+//
+// const getRecipe = (id) => {
+//   event.preventDefault()
+//   return $.ajax({
+//     url: config.apiOrigin + '/recipes/' + id,
+//     method: 'GET',
+//     headers: {
+//       Authorization: 'Token token=' + store.user.token
+//     }
+//   })
+// }
+//
+//
+// const updateRecipe = (data) => {
+//   // console.log(data + 'PATCH TEST DATA')
+//   event.preventDefault()
+//   return $.ajax({
+//     url: config.apiOrigin + '/recipes/' + store.recipe.id,
+//     method: 'PATCH',
+//     headers: {
+//       Authorization: 'Token token=' + store.user.token
+//     },
+//     data: data
+//   })
+// }
 
 module.exports = {
   signUp,
   signIn,
   changePassword,
-  signOut,
-  getAllGames,
-  createGame,
-  getId,
-  joinGame,
-  updateGame
+  signOut
 }

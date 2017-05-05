@@ -41,50 +41,41 @@ const onSignOut = function (event) {
     .catch(ui.signOutFailure)
 }
 
-// const onGetAllGames = function (event) {
+// const onGetAllRecipes = function (event) {
 //   console.log(data)
 //   const data = getFormFields(event.target)
 //   event.preventDefault()
 //   api.getAllGames(data)
-//     .then(ui.getAllGamesSuccess)
-//     .catch(ui.getAllGamesFailure)
+//     .then(ui.getAllRecipesSuccess)
+//     .catch(ui.getAllRecipesFailure)
 // }
 
-// const onCreateGame = function (event) {
+// const onCreateRecipe = function (event) {
 //   // console.log(data)
 //   const data = getFormFields(event.target)
 //   event.preventDefault()
 //   $('#container').removeClass('hidden')
 //   api.createGame(data)
-//     .then(ui.createGameSuccess)
-//     .catch(ui.createGameFailure)
+//     .then(ui.createRecipeSuccess)
+//     .catch(ui.createRecipeFailure)
 // }
 
-// const onGetId = function (event) {
+// const onGetRecipe = function (event) {
 //   // console.log(data)
 //   const data = getFormFields(event.target)
 //   event.preventDefault()
 //   api.getId(data.game.id)
-//     .then(ui.getIdSuccess)
-//     .catch(ui.getIdFailure)
+//     .then(ui.getRecipeSuccess)
+//     .catch(ui.getRecipeFailure)
 // }
 //
-// const onJoinGame = function (event) {
+// const onUpdateRecipe = function (event) {
 //   // console.log(data)
 //   const data = getFormFields(event.target)
 //   event.preventDefault()
-//   api.joinGame(data)
-//     .then(ui.joinGameSuccess)
-//     .catch(ui.joinGameFailure)
-// }
-//
-// const onUpdateGame = function (event) {
-//   // console.log(data)
-//   const data = getFormFields(event.target)
-//   event.preventDefault()
-//   api.updateGame(data)
-//     .then(ui.gameStateSuccess)
-//     .catch(ui.gameStateFailure)
+//   api.updateRecipe(data)
+//     .then(ui.recipeStateSuccess)
+//     .catch(ui.recipeStateFailure)
 // }
 
 const addHandlers = () => {
