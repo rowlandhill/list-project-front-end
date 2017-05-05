@@ -11,9 +11,8 @@ const resetForms = () => {
 
 const signUpSuccess = (data) => {
   console.log(data + 'sign-up success')
-  // $('#sign-up').addClass('hidden')
+  $('#sign-up').addClass('hidden')
   resetForms()
-  // $('#sign-up').addClass('hidden')
 }
 
 const signUpFailure = (error) => {
@@ -24,15 +23,16 @@ const signUpFailure = (error) => {
 const signInSuccess = (data) => {
   console.log('sign in success')
   store.user = data.user
-  // $('#sign-in').addClass('hidden')
-  // $('#change-password').removeClass('hidden')
-  // $('#sign-out').removeClass('hidden')
-  // $('#get-all-games').removeClass('hidden')
-  // $('#create-game').removeClass('hidden')
-  // if ($('#sign-up').not('hidden')) {
-  //   $('#sign-up').addClass('hidden')
-  // }
   resetForms()
+  $('#sign-in').addClass('hidden')
+  $('#change-password').removeClass('hidden')
+  $('#sign-out').removeClass('hidden')
+  $('#get-all-recipes').removeClass('hidden')
+  $('#create-recipe').removeClass('hidden')
+  $('#new-recipe').removeClass('hidden')
+  if ($('#sign-up').not('hidden')) {
+    $('#sign-up').addClass('hidden')
+  }
   // $('#sign-in').addClass('hidden')
   // $('#change-password').removeClass('hidden')
   // $('#sign-out').removeClass('hidden')
@@ -63,6 +63,15 @@ const signOutSuccess = (response) => {
   // console.log('response is', response)
   console.log('signedout')
   resetForms()
+  $('#sign-in').removeClass('hidden')
+  $('#sign-up').removeClass('hidden')
+  $('#change-password').addClass('hidden')
+  $('#sign-out').addClass('hidden')
+  $('#get-all-recipes').addClass('hidden')
+  $('#create-recipe').addClass('hidden')
+  // if ($('#sign-up').not('hidden')) {
+  //   $('#sign-up').addClass('hidden')
+  // }
 }
 
 const signOutFailure = (error) => {
@@ -70,18 +79,18 @@ const signOutFailure = (error) => {
   resetForms()
 }
 
-// const getAllRecipesSuccess = (data) => {
-//   // console.log(data)
-//   $('#all-recipes').text(data.recipes)
-// }
-//
-// const getAllRecipesFailure = (error) => {
-//   console.error(error)
-// }
+const getAllRecipesSuccess = (data) => {
+  console.log(data)
+  $('#all-recipes').text(data.recipes)
+}
+
+const getAllRecipesFailure = (error) => {
+  console.error(error)
+}
 //
 // const createRecipeSuccess = (data) => {
 //   // console.log(data)
-//   $('#all-recipes').text('')
+    // $('#recipe-container').removeClass('hidden')
 //   store.recipe = data.recipe
 //   console.log(data.recipe)
 // }
@@ -115,5 +124,7 @@ module.exports = {
   changePasswordSuccess,
   changePasswordFailure,
   signOutSuccess,
-  signOutFailure
+  signOutFailure,
+  getAllRecipesSuccess,
+  getAllRecipesFailure
 }

@@ -41,14 +41,14 @@ const onSignOut = function (event) {
     .catch(ui.signOutFailure)
 }
 
-// const onGetAllRecipes = function (event) {
-//   console.log(data)
-//   const data = getFormFields(event.target)
-//   event.preventDefault()
-//   api.getAllGames(data)
-//     .then(ui.getAllRecipesSuccess)
-//     .catch(ui.getAllRecipesFailure)
-// }
+const onGetAllRecipes = function (event) {
+  console.log(data)
+  const data = getFormFields(event.target)
+  event.preventDefault()
+  api.getAllRecipes(data)
+    .then(ui.getAllRecipesSuccess)
+    .catch(ui.getAllRecipesFailure)
+}
 
 // const onCreateRecipe = function (event) {
 //   // console.log(data)
@@ -83,8 +83,8 @@ const addHandlers = () => {
   $('#sign-in').on('submit', onSignIn)
   $('#change-password').on('submit', onChangePassword)
   $('#sign-out').on('submit', onSignOut)
-  // $('#get-all-recipes').on('submit', onGetAllGames)
-  // $('#create-recipe').on('submit', onCreateGame)
+  $('#get-all-recipes').on('submit', onGetAllRecipes)
+  // $('#create-recipe').on('submit', onCreateRecipe)
 }
 
 module.exports = {

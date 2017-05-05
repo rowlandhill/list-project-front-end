@@ -42,27 +42,27 @@ const signOut = (data) => {
   })
 }
 
-// const getAllRecipes = () => {
-//   // console.log('get index', data)
-//   return $.ajax({
-//     url: config.apiOrigin + '/recipes/',
-//     method: 'GET',
-//     headers: {
-//       Authorization: 'Token token=' + store.user.token
-//     }
-//   })
-// }
-//
-// const createRecipe = (data) => {
-//   event.preventDefault()
-//   return $.ajax({
-//     url: config.apiOrigin + '/recipes/',
-//     method: 'POST',
-//     headers: {
-//       Authorization: 'Token token=' + store.user.token
-//     }
-//   })
-// }
+const getAllRecipes = () => {
+  // console.log('get index', data)
+  return $.ajax({
+    url: config.apiOrigin + '/recipes/',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+const createRecipe = (data) => {
+  event.preventDefault()
+  return $.ajax({
+    url: config.apiOrigin + '/recipes/',
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
 //
 // const getRecipe = (id) => {
 //   event.preventDefault()
@@ -93,5 +93,7 @@ module.exports = {
   signUp,
   signIn,
   changePassword,
-  signOut
+  signOut,
+  getAllRecipes,
+  createRecipe
 }

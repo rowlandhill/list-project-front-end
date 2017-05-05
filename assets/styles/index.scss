@@ -11,3 +11,29 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
   // display: inline-block;
   position: relative;
 }
+
+#sign-in {
+  // display: inline-block;
+  float: left;
+  margin: 10px 10px 5px 10px;
+}
+
+#sign-up {
+  // display: inline-block;
+  float: left;
+  margin: 10px 10px 10px 128px;
+}
+
+#change-password {
+  float: left;
+  margin: 10px;
+}
+
+#sign-out {
+  float: left;
+  margin: 10px;
+}
+
+.hidden {
+  visibility: hidden;
+}
