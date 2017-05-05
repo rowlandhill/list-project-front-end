@@ -1,2 +1,13 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
+
+#description-button {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+#description {
+  // display: inline-block;
+  position: relative;
+}

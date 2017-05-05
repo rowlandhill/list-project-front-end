@@ -10,16 +10,104 @@
       <!-- Do not add `script` tags unless you know what you are doing -->
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
-    </head>
-    <body class="container-fluid">
-      <h1>Example</h1>
 
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-      eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-      minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-      ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-      est laborum.</p>
+    </head>
+
+    <body class="container-fluid">
+
+      <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <p class="navbar-brand">
+        Mangia Time
+      </p>
+      <form class="form-inline" id="sign-in">
+  <div class="form-group">
+    <input class="form-control" name="credentials[email]" type="text" value="" placeholder="username">
+  </div>
+  <div class="form-group">
+    <input class="form-control" name="credentials[password]" type="password" value="" placeholder="password">
+  </div>
+  <button type="submit" class="btn btn-default">sign in</button>
+</form>
+<br>
+<form class="form-inline" id="sign-up">
+  <div class="form-group">
+<input class="form-control" name="credentials[email]" type="text" value="" placeholder="desired username">
+</div>
+<div class="form-group">
+<input class="form-control" name="credentials[password]" type="password" value="" placeholder="password">
+</div>
+<div class="form-group">
+<input class="form-control" name="credentials[password_confirmation]" type="password" value="" placeholder="password">
+</div>
+<button type="submit" class="btn btn-default">sign up</button>
+</form>
+    </div>
+  </div>
+</nav>
+<br>
+<br>
+
+<form id="get-all-recipes" class="hidden">
+          <input class="btn btn-default" type="submit" name="submit" value="all my recipes">
+        </form>
+        <br>
+          <div id="all-recipes"></div>
+
+<br>
+<br>
+      <h1>Welcome to Mangia Time!</h1>
+
+      <p>Mangia Time! is a great way to add, edit and store your favorite recipes!<br>
+      If you need to change the serving size, just tell us how many servings you<br>
+    want to make, and we'll do the math for you!</p>
+
+    <div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading"><button id="init_new_recipe" type="submit" class="btn btn-default">new recipe</button>
+  </div>
+    <!-- List group -->
+  <!-- <ul id="ingredients" class="list-group">
+    <li class="list-group-item"><input type="text" class="form-control" placeholder="add ingredient"></li>
+    <li class="list-group-item"><input type="text" class="form-control" placeholder="add ingredient"></li>
+    <li class="list-group-item"><input type="text" class="form-control" placeholder="add ingredient"></li>
+    <li class="list-group-item"><input type="text" class="form-control" placeholder="add ingredient"></li>
+    <li class="list-group-item"><input type="text" class="form-control" placeholder="add ingredient"></li>
+  </ul> -->
+    <form class="form-inline">
+  <div class="form-group">
+    <input type="text" class="form-control" id="quantity" placeholder="qty">
+  </div>
+  <div class="form-group">
+    <input type="text" class="form-control" id="ingredient" placeholder="ingredient">
+  </div>
+  <button type="submit" class="btn btn-default">+</button>
+</form>
+  <div id="description" class="panel-body"><p>add description</p><textarea class="form-control" rows="3">
+    </textarea>
+    <button id="description-button" type="submit" class="btn btn-default">add</button>
+  </div>
+</div>
+
+<form id="change-password" class="form-inline">
+      <div class="form-group">
+        <input class="form-control" type="password" name="passwords[old]" placeholder="old password">
+      </div>
+      <div class="form-group">
+        <input class="form-control" type="password" name="passwords[new]" placeholder="new password">
+      </div>
+      <div class="form-group">
+      <input class="btn btn-default" type="submit" name="submit" value="change password">
+    </div>
+      </form>
+
+<br>
+
+      <form id="sign-out">
+        <input class="btn btn-default" type="submit" name="submit" value="sign out">
+      </form>
+
+
     </body>
 </html>
