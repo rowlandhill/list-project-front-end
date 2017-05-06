@@ -54,13 +54,26 @@ const getAllRecipes = () => {
 }
 
 const createRecipe = (data) => {
-  event.preventDefault()
+  console.log('createRecipe data is', data)
   return $.ajax({
     url: config.apiOrigin + '/recipes/',
     method: 'POST',
     headers: {
       Authorization: 'Token token=' + store.user.token
-    }
+    },
+    data
+  })
+}
+
+const createIngredient = (data) => {
+  console.log('createIngredient data is', data)
+  return $.ajax({
+    url: config.apiOrigin + '/ingredients/',
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
   })
 }
 //
@@ -95,5 +108,6 @@ module.exports = {
   changePassword,
   signOut,
   getAllRecipes,
-  createRecipe
+  createRecipe,
+  createIngredient
 }

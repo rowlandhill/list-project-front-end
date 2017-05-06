@@ -82,35 +82,32 @@
 
   <p>Mangia Time! is a great way to add, edit and store your favorite recipes!<br> If you need to change the serving size, just tell us how many servings you<br> want to make, and we'll do the math for you!</p>
 
-  <div class="panel panel-default hidden" id="new-recipe">
-    <!-- Default panel contents -->
-    <div class="panel-heading"><button id="init_new_recipe" type="submit" class="btn btn-default">new recipe</button>
-    </div>
-    <div id="recipe-container" class="hidden">
-      <!-- List group -->
-      <!-- <ul id="ingredients" class="list-group">
-    <li class="list-group-item"><input type="text" class="form-control" placeholder="add ingredient"></li>
-    <li class="list-group-item"><input type="text" class="form-control" placeholder="add ingredient"></li>
-    <li class="list-group-item"><input type="text" class="form-control" placeholder="add ingredient"></li>
-    <li class="list-group-item"><input type="text" class="form-control" placeholder="add ingredient"></li>
-    <li class="list-group-item"><input type="text" class="form-control" placeholder="add ingredient"></li>
-  </ul> -->
-      <form class="form-inline">
-        <div class="form-group">
-          <input type="text" class="form-control" id="quantity" placeholder="qty">
-        </div>
-        <div class="form-group">
-          <input type="text" class="form-control" id="ingredient" placeholder="ingredient">
-        </div>
-        <button type="submit" class="btn btn-default">+</button>
-      </form>
-      <div id="description" class="panel-body">
-        <p>add description</p><textarea class="form-control" rows="3">
-    </textarea>
-        <button id="description-button" type="submit" class="btn btn-default">add</button>
+  <div class="container-fluid">
+    <form id="new-recipe">unhides everything below
+        <input class="btn btn-default" type="submit" name="submit" value="new recipe">
+    </form>
+    <form id="createRecipe" class="form-group">
+      <div class="form-group">
+        <input class="form-control" type="text" name="recipe[name]" id="recipe-name" placeholder="name">
       </div>
+    <div class="form-group">
+      <input class="form-control" type="text" name="ingredients[quantity]" id="quantity" placeholder="quantity">
     </div>
-  </div>
+    <div class="form-group">
+      <input class="form-control" type="text" name="ingredients[name]" id="ingredients" placeholder="ingredient">
+    </div>
+    <button type="submit" class="btn btn-default" id="appendIngredients">+</button>
+    <div class="form-group">
+      <p>add description</p>
+    <textarea class="form-control" name="recipe[description]" rows="7"></textarea>
+    </div>
+    <div class="form-group">
+      <input class="form-control" name="recipe[servings]" type="text" value="" placeholder="servings">
+    </div>
+    <button type="submit" class="btn btn-default" name="submit">add</button>
+  </form>
+</div>
+
 
 
 

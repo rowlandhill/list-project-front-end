@@ -25,7 +25,7 @@ const onSignIn = function (event) {
 
 const onChangePassword = function (event) {
   // console.log('pass change')
-  const data = getFormFields(event.target)
+  const data = getFormFields(this)
   event.preventDefault()
   api.changePassword(data)
     .then(ui.changePasswordSuccess)
@@ -34,7 +34,7 @@ const onChangePassword = function (event) {
 
 const onSignOut = function (event) {
   // console.log('event fired')
-  const data = getFormFields(event.target)
+  const data = getFormFields(this)
   event.preventDefault()
   api.signOut(data)
     .then(ui.signOutSuccess)
@@ -43,40 +43,50 @@ const onSignOut = function (event) {
 
 const onGetAllRecipes = function (event) {
   console.log(data)
-  const data = getFormFields(event.target)
+  const data = getFormFields(this)
   event.preventDefault()
   api.getAllRecipes(data)
     .then(ui.getAllRecipesSuccess)
     .catch(ui.getAllRecipesFailure)
 }
 
-// const onCreateRecipe = function (event) {
-//   // console.log(data)
-//   const data = getFormFields(event.target)
-//   event.preventDefault()
-//   $('#container').removeClass('hidden')
-//   api.createGame(data)
-//     .then(ui.createRecipeSuccess)
-//     .catch(ui.createRecipeFailure)
-// }
+const onCreateRecipe = function (event) {
+  console.log(data)
+  event.preventDefault()
+  const data = getFormFields(this)
+  // $('#recipe-container').removeClass('hidden')
+  api.createRecipe(data)
+    .then(ui.createRecipeSuccess)
+    .catch(ui.createRecipeFailure)
+}
+
+const onCreateIngredient = function (event) {
+  console.log(data)
+  event.preventDefault()
+  const data = getFormFields(this)
+  // $('#recipe-container').removeClass('hidden')
+  api.createIngredient(data)
+    .then(ui.createIngredientSuccess)
+    .catch(ui.createIngredientFailure)
+}
 
 // const onGetRecipe = function (event) {
 //   // console.log(data)
-//   const data = getFormFields(event.target)
+//   const data = getFormFields(this)
 //   event.preventDefault()
 //   api.getId(data.game.id)
 //     .then(ui.getRecipeSuccess)
 //     .catch(ui.getRecipeFailure)
 // }
 //
-// const onUpdateRecipe = function (event) {
-//   // console.log(data)
-//   const data = getFormFields(event.target)
-//   event.preventDefault()
-//   api.updateRecipe(data)
-//     .then(ui.recipeStateSuccess)
-//     .catch(ui.recipeStateFailure)
-// }
+const onUpdateRecipe = function (event) {
+  // console.log(data)
+  const data = getFormFields(this)
+  event.preventDefault()
+  api.updateRecipe(data)
+    .then(ui.recipeStateSuccess)
+    .catch(ui.recipeStateFailure)
+}
 
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp)
@@ -84,7 +94,9 @@ const addHandlers = () => {
   $('#change-password').on('submit', onChangePassword)
   $('#sign-out').on('submit', onSignOut)
   $('#get-all-recipes').on('submit', onGetAllRecipes)
-  // $('#create-recipe').on('submit', onCreateRecipe)
+  $('#createRecipe').on('submit', onCreateRecipe, onCreateIngredient)
+  $('#updateRecipe').on('submit', onUpdateRecipe)
+  $('#description-button').on('submit', onUpdateRecipe)
 }
 
 module.exports = {

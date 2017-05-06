@@ -33,15 +33,6 @@ const signInSuccess = (data) => {
   if ($('#sign-up').not('hidden')) {
     $('#sign-up').addClass('hidden')
   }
-  // $('#sign-in').addClass('hidden')
-  // $('#change-password').removeClass('hidden')
-  // $('#sign-out').removeClass('hidden')
-  // $('#get-all-recipes').removeClass('hidden')
-  // $('#create-game').removeClass('hidden')
-  // // $('#get-id').removeClass('hidden')
-  // if ($('#sign-up').not('hidden')) {
-  //   $('#sign-up').addClass('hidden')
-  // }
 }
 
 const signInFailure = (error) => {
@@ -69,9 +60,6 @@ const signOutSuccess = (response) => {
   $('#sign-out').addClass('hidden')
   $('#get-all-recipes').addClass('hidden')
   $('#create-recipe').addClass('hidden')
-  // if ($('#sign-up').not('hidden')) {
-  //   $('#sign-up').addClass('hidden')
-  // }
 }
 
 const signOutFailure = (error) => {
@@ -88,16 +76,27 @@ const getAllRecipesFailure = (error) => {
   console.error(error)
 }
 //
-// const createRecipeSuccess = (data) => {
-//   // console.log(data)
-    // $('#recipe-container').removeClass('hidden')
-//   store.recipe = data.recipe
-//   console.log(data.recipe)
-// }
-//
-// const createRecipeFailure = (error) => {
-//   console.error(error)
-// }
+const createRecipeSuccess = (response) => {
+  console.log(response)
+  // $('#recipe-container').removeClass('hidden')
+  store.recipe = response.recipe
+  console.log(response.recipe)
+}
+
+const createRecipeFailure = (error) => {
+  console.error(error)
+}
+
+const createIngredientSuccess = (response) => {
+  console.log(response)
+  // $('#recipe-container').removeClass('hidden')
+  store.ingredient = response.ingredient
+  console.log(response.ingredient)
+}
+
+const createIngredientFailure = (error) => {
+  console.error(error)
+}
 //
 // const getRecipeSuccess = (data) => {
 //   console.log(data.recipe.id)
@@ -107,14 +106,13 @@ const getAllRecipesFailure = (error) => {
 //   console.error(error)
 // }
 //
-// const updateRecipeSuccess = (response) => {
-//   // console.log('response is', response)
-// }
-//
-// const updateRecipeFailure = (error) => {
-//   console.error('uh what' + error)
-// }
-//
+const updateRecipeSuccess = (response) => {
+  // console.log('response is', response)
+}
+
+const updateRecipeFailure = (error) => {
+  console.error('uh what' + error)
+}
 
 module.exports = {
   signUpSuccess,
@@ -126,5 +124,11 @@ module.exports = {
   signOutSuccess,
   signOutFailure,
   getAllRecipesSuccess,
-  getAllRecipesFailure
+  getAllRecipesFailure,
+  createRecipeSuccess,
+  createRecipeFailure,
+  updateRecipeSuccess,
+  updateRecipeFailure,
+  createIngredientSuccess,
+  createIngredientFailure
 }
