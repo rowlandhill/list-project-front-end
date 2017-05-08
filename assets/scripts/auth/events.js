@@ -50,8 +50,13 @@ const onGetAllRecipes = function (event) {
     .catch(ui.getAllRecipesFailure)
 }
 
+const onClearRecipes = (event) => {
+  event.preventDefault()
+  ui.clearRecipes()
+}
+
 const onCreateRecipe = function (event) {
-  console.log(data)
+  console.log('create recipe data is', data)
   event.preventDefault()
   const data = getFormFields(this)
   // $('#recipe-container').removeClass('hidden')
@@ -61,7 +66,7 @@ const onCreateRecipe = function (event) {
 }
 
 const onCreateIngredient = function (event) {
-  console.log(data)
+  console.log('create ingredient data is', data)
   event.preventDefault()
   const data = getFormFields(this)
   // $('#recipe-container').removeClass('hidden')
@@ -70,35 +75,40 @@ const onCreateIngredient = function (event) {
     .catch(ui.createIngredientFailure)
 }
 
-// const onGetRecipe = function (event) {
-//   // console.log(data)
-//   const data = getFormFields(this)
-//   event.preventDefault()
-//   api.getId(data.game.id)
-//     .then(ui.getRecipeSuccess)
-//     .catch(ui.getRecipeFailure)
-// }
-//
-const onUpdateRecipe = function (event) {
+const onGetRecipe = function (event) {
   // console.log(data)
   const data = getFormFields(this)
   event.preventDefault()
-  api.updateRecipe(data)
-    .then(ui.recipeStateSuccess)
-    .catch(ui.recipeStateFailure)
+  api.getRecipe(data.recipe.id)
+    .then(ui.getRecipeSuccess)
+    .catch(ui.getRecipeFailure)
 }
+
+// const onUpdateRecipe = (event) => {
+//   event.preventDefault()
+//   console.log('data-id')
+//   debugger
+//   const data = getFormFields(event.target)
+//   const newRecipe = $(event.target).attr('data-id')
+//   api.updateRecipe(data, newRecipe)
+//     .then(ui.updateRecipeSuccess)
+//     .catch(ui.updateRecipeFailure)
+// }
 
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
   $('#change-password').on('submit', onChangePassword)
   $('#sign-out').on('submit', onSignOut)
-  $('#get-all-recipes').on('submit', onGetAllRecipes)
-  $('#createRecipe').on('submit', onCreateRecipe, onCreateIngredient)
-  $('#updateRecipe').on('submit', onUpdateRecipe)
-  $('#description-button').on('submit', onUpdateRecipe)
+  $('#getRecipesButton').on('click', onGetAllRecipes)
+  $('#clearRecipesButton').on('click', onClearRecipes)
+  $('#createRecipe').on('submit', onCreateRecipe)
+  $('#createIngredient').on('submit', onCreateIngredient)
+  // $('#description-button').on('submit', onUpdateRecipe)
+  $('#getOneRecipe').on('submit', onGetRecipe)
 }
 
 module.exports = {
-  addHandlers
+  addHandlers,
+  onCreateIngredient
 }

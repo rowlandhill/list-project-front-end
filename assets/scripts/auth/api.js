@@ -45,7 +45,7 @@ const signOut = (data) => {
 const getAllRecipes = () => {
   // console.log('get index', data)
   return $.ajax({
-    url: config.apiOrigin + '/recipes/',
+    url: config.apiOrigin + '/recipes',
     method: 'GET',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -76,31 +76,30 @@ const createIngredient = (data) => {
     data
   })
 }
+
+const getRecipe = (id) => {
+  event.preventDefault()
+  return $.ajax({
+    url: config.apiOrigin + '/recipes/' + id,
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
 //
-// const getRecipe = (id) => {
-//   event.preventDefault()
-//   return $.ajax({
-//     url: config.apiOrigin + '/recipes/' + id,
-//     method: 'GET',
-//     headers: {
-//       Authorization: 'Token token=' + store.user.token
-//     }
-//   })
-// }
 //
-//
-// const updateRecipe = (data) => {
-//   // console.log(data + 'PATCH TEST DATA')
-//   event.preventDefault()
-//   return $.ajax({
-//     url: config.apiOrigin + '/recipes/' + store.recipe.id,
-//     method: 'PATCH',
-//     headers: {
-//       Authorization: 'Token token=' + store.user.token
-//     },
-//     data: data
-//   })
-// }
+const updateRecipe = (data, newRecipe) => {
+  // console.log(data + 'PATCH TEST DATA')
+  return $.ajax({
+    url: config.apiOrigin + '/recipes/' + newRecipe,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
 
 module.exports = {
   signUp,
@@ -109,5 +108,7 @@ module.exports = {
   signOut,
   getAllRecipes,
   createRecipe,
-  createIngredient
+  createIngredient,
+  updateRecipe,
+  getRecipe
 }

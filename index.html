@@ -67,15 +67,6 @@
     </div>
 </nav>
 
-    <br>
-    <br>
-                <!-- GET ALL RECIPES -->
-  <form id="get-all-recipes" class="hidden">
-    <input class="btn btn-default" type="submit" name="submit" value="all my recipes">
-  </form>
-  <br>
-  <div id="all-recipes"></div>
-
   <br>
   <br>
   <h1>Welcome to Mangia Time!</h1>
@@ -83,33 +74,57 @@
   <p>Mangia Time! is a great way to add, edit and store your favorite recipes!<br> If you need to change the serving size, just tell us how many servings you<br> want to make, and we'll do the math for you!</p>
 
   <div class="container-fluid">
+
+                <!-- CREATE RECIPE -->
     <form id="new-recipe">unhides everything below
         <input class="btn btn-default" type="submit" name="submit" value="new recipe">
     </form>
     <form id="createRecipe" class="form-group">
       <div class="form-group">
-        <input class="form-control" type="text" name="recipe[name]" id="recipe-name" placeholder="name">
+        <input class="form-control" type="text" name="recipe[name]" id="recipe-name" placeholder="recipe name">
       </div>
-    <div class="form-group">
-      <input class="form-control" type="text" name="ingredients[quantity]" id="quantity" placeholder="quantity">
-    </div>
-    <div class="form-group">
-      <input class="form-control" type="text" name="ingredients[name]" id="ingredients" placeholder="ingredient">
-    </div>
-    <button type="submit" class="btn btn-default" id="appendIngredients">+</button>
     <div class="form-group">
       <p>add description</p>
     <textarea class="form-control" name="recipe[description]" rows="7"></textarea>
     </div>
     <div class="form-group">
-      <input class="form-control" name="recipe[servings]" type="text" value="" placeholder="servings">
+      <input class="form-control" name="recipe[servings]" type="text" value="" placeholder="serving size">
     </div>
     <button type="submit" class="btn btn-default" name="submit">add</button>
+    </form>
+
+                    <!-- SHOW NEW RECIPE -->
+                    <!-- show new recipe that was just created. -->
+
+
+                <!-- CREATE INGREDIENT -->
+    <!-- <form id="createIngredient" class="form-group">
+    <div class="form-group">
+      <input class="form-control" type="text" name="ingredient[quantity]" id="quantity" placeholder="ingredient quantity">
+    </div>
+    <div class="form-group">
+      <input class="form-control" type="text" name="ingredient[name]" id="ingredients" placeholder="ingredient name">
+    </div>
+    <button type="submit" class="btn btn-default" name="submit">+</button>
+    </form> -->
+
+          <!-- GET ONE RECIPE -->
+    <form id="getOneRecipe">
+      <div class="form-group">
+      <input class="form-control" type="text" name="recipe[id]" id="getOneRecipe" placeholder="recipe id">
+    </div>
+    <button type="submit" class="btn btn-default" name="submit">get recipe</button>
   </form>
+    <br>
+    <div id="one-recipe-content" class="one-recipe-content"></div>
+
+    <!-- GET ALL RECIPES -->
+    <button id="getRecipesButton" class="btn btn-default" value="all my recipes">all my recipes</button>
+    <button id="clearRecipesButton" class="btn btn-default" value="clear all recipes">clear all recipes</button>
+    <br>
+    <div id="content" class="content"></div>
+
 </div>
-
-
-
 
 </body>
 
