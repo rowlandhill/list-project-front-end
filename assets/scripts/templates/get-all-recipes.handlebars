@@ -1,27 +1,29 @@
 {{#each recipes as |recipe|}}
 
   <div data-id="{{recipe.id}}" class="recipe-post">
-    <ul>
-      <li><h4>How to make {{recipe.name}}</h4></li>
-      <li class="desc">Description: {{recipe.description}}</li>
-      <li class="desc">Servings: {{recipe.servings}}</li>
-      <li class="desc">Recipe ID: {{recipe.id}}</li>
+    <ul style="list-style-type: none;">
+      <li><h4>How to make <strong>{{recipe.name}}</strong></h4></li>
+      <li class="desc"><strong>Description:</strong> {{recipe.description}}</li>
+      <li class="desc"><strong>Servings:</strong> {{recipe.servings}}</li>
+      <li class="desc"><strong>Recipe ID:</strong> {{recipe.id}}</li>
   </ul>
   <form class="update" id="{{recipe.id}}" data-id="{{recipe.id}}">
 
     <div class="container-fluid">
       <br>
-       <input class="form-control" type="text" name="recipe[name]" placeholder="recipe name">
+       <input class="form-control handlebars-update" type="text" name="recipe[name]" id="handlebars-recipe-name" placeholder="update recipe name">
+       <br>
        <div class="form-group">
-      <p>update description</p>
-     <textarea class="form-control" name="recipe[description]" rows="7"></textarea>
+     <textarea class="form-control handlebars-update" name="recipe[description]" id="handlebars-recipe-desc" rows="7" placeholder="update description and ingredients here"></textarea>
     </div>
     <div class="form-group">
-      <input class="form-control" name="recipe[servings]" type="text" value="" placeholder="update serving size">
+      <input class="form-control handlebars-update" name="recipe[servings]" id="handlebars-recipe-servings" type="text" value="" placeholder="update serving size">
     </div>
     <input type="submit" class="btn btn-default" name="submit" value="update">
-    <div class="container-fluid destroy">
-       <button data-id="{{recipe.id}}" class="btn btn-default" value="delete">delete</button>
+    <br>
+    <div class="destroy">
+      <br>
+       <button data-id="{{recipe.id}}" id="red-button" class="btn btn-danger" value="delete">delete</button>
      </div>
     </form>
    </div>

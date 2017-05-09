@@ -4,7 +4,6 @@ const config = require('../config.js')
 const store = require('../store.js')
 
 const signUp = (data) => {
-  // console.log('data is', data)
   return $.ajax({
     url: config.apiOrigin + '/sign-up',
     method: 'POST',
@@ -32,7 +31,6 @@ const changePassword = (data) => {
 }
 
 const signOut = (data) => {
-  // console.log('sign out fired', data)
   return $.ajax({
     url: config.apiOrigin + '/sign-out/' + store.user.id,
     method: 'DELETE',
