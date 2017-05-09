@@ -3,6 +3,7 @@
 const store = require('../store.js')
 const api = require('./api.js')
 const showRecipesTemplate = require('../templates/get-all-recipes.handlebars')
+const showOneRecipeTemplate = require('../templates/get-one-recipe.handlebars')
 const getFormFields = require(`../../../lib/get-form-fields`)
 
 const resetForms = () => {
@@ -81,12 +82,32 @@ const onUpdateRecipe = (event) => {
     .catch(updateRecipeFailure)
 }
 
-const getAllRecipesSuccess = (data) => {
-  console.log(data)
-  // $('#all-recipes').text(data.recipes)
-  const showRecipesHtml = showRecipesTemplate({ recipes: data.recipes })
+const refreshRecipesList = (data) => {
+  const showRecipesHtml = showRecipesTemplate({ recipes: store.recipeLists })
+  $('.content').empty()
   $('.content').append(showRecipesHtml)
   $('.update').on('submit', onUpdateRecipe)
+  $('.destroy').on('click', onDeleteRecipe)
+}
+
+const onDeleteRecipe = (event) => {
+  event.preventDefault()
+  // store.recipeLists = data.recipes
+  const removeRecipe = $(event.target).attr('data-id')
+  store.recipeLists = store.recipeLists.filter((recipe) => {
+    return String(recipe.id) !== String(removeRecipe)
+  })
+  refreshRecipesList()
+  api.deleteRecipe(removeRecipe)
+    .then(deleteRecipeSuccess)
+    .catch(deleteRecipeFailure)
+}
+
+const getAllRecipesSuccess = (data) => {
+  console.log(data)
+  store.recipeLists = data.recipes
+  refreshRecipesList()
+  // $('#all-recipes').text(data.recipes)
   // $('.update').on('submit', events.onUpdateRecipe)
   // $('.update').on('click', function (event) {
   //   $(this).closest('div').find('.show-update-fields').hide()
@@ -126,6 +147,9 @@ const createIngredientFailure = (error) => {
 
 const getRecipeSuccess = (data) => {
   console.log(data.recipe.id)
+  console.log(data.recipe)
+  const showOneRecipeHtml = showOneRecipeTemplate({ recipe: data.recipe })
+  $('.one-recipe-content').html(showOneRecipeHtml)
 }
 
 const getRecipeFailure = (error) => {
@@ -138,6 +162,14 @@ const updateRecipeSuccess = (response) => {
 
 const updateRecipeFailure = (data) => {
   console.error('uh what' + data)
+}
+
+const deleteRecipeSuccess = (data) => {
+  console.log('response is', data)
+}
+
+const deleteRecipeFailure = (data) => {
+  console.error('this did not work' + data)
 }
 
 module.exports = {

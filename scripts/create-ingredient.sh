@@ -9,8 +9,8 @@ curl "${API}${URL_PATH}" \
   --header "Authorization: Token token=$TOKEN" \
   --data '{
     "ingredient": {
-      "name": "'"${NAME}"'",
-      "quantity": "'"${QUANTITY}"'"
+      "quantity": "'"${QUANTITY}"'",
+      "name": "'"${NAME}"'"
     }
   }'
 

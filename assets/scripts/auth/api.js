@@ -87,10 +87,10 @@ const getRecipe = (id) => {
     }
   })
 }
-//
-//
+
 const updateRecipe = (data, newRecipe) => {
   // console.log(data + 'PATCH TEST DATA')
+  event.preventDefault()
   return $.ajax({
     url: config.apiOrigin + '/recipes/' + newRecipe,
     method: 'PATCH',
@@ -98,6 +98,17 @@ const updateRecipe = (data, newRecipe) => {
       Authorization: 'Token token=' + store.user.token
     },
     data
+  })
+}
+
+const deleteRecipe = (id) => {
+  event.preventDefault()
+  return $.ajax({
+    url: config.apiOrigin + '/recipes/' + id,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
   })
 }
 
@@ -110,5 +121,6 @@ module.exports = {
   createRecipe,
   createIngredient,
   updateRecipe,
-  getRecipe
+  getRecipe,
+  deleteRecipe
 }
