@@ -37,6 +37,7 @@ const onChangePassword = function (event) {
 const onSignOut = function (event) {
   // console.log('event fired')
   $('#headline').addClass('hidden')
+  $('#change-password-alert').addClass('hidden')
   $('#sign-out-message').removeClass('hidden')
   $('#sign-out-message').text('Thank you for using Mangia Time!')
   const data = getFormFields(this)
@@ -50,6 +51,7 @@ const onGetAllRecipes = function (event) {
   console.log(data)
   const data = getFormFields(this)
   event.preventDefault()
+  $('#change-password-alert').addClass('hidden')
   api.getAllRecipes(data)
     .then(ui.getAllRecipesSuccess)
     .catch(ui.getAllRecipesFailure)
@@ -58,6 +60,7 @@ const onGetAllRecipes = function (event) {
 const onClearRecipes = (event) => {
   event.preventDefault()
   ui.clearRecipes()
+  $('#change-password-alert').addClass('hidden')
 }
 
 const onClearOneRecipe = (event) => {
@@ -79,6 +82,7 @@ const closeSignInWindow = (event) => {
 const onCreateRecipe = function (event) {
   // console.log('create recipe data is', data)
   event.preventDefault()
+  $('#change-password-alert').addClass('hidden')
   const data = getFormFields(this)
   // $('#recipe-container').removeClass('hidden')
   api.createRecipe(data)
@@ -98,8 +102,10 @@ const onCreateIngredient = function (event) {
 
 const onGetRecipe = function (event) {
   // console.log(data)
-  const data = getFormFields(this)
   event.preventDefault()
+  $('#change-password-alert').addClass('hidden')
+  const data = getFormFields(this)
+  $('#change-password-alert').addClass('hidden')
   api.getRecipe(data.recipe.id)
     .then(ui.getRecipeSuccess)
     .catch(ui.getRecipeFailure)
@@ -109,6 +115,11 @@ const onExitCreateRecipeForm = function (event) {
   event.preventDefault()
   document.getElementById('createRecipe').reset()
   $('#create-recipe-alert').text('type in the name, description, ingredients and servings, then click \'add\' to add it to your collection!')
+  $('#change-password-alert').addClass('hidden')
+}
+
+const hidePasswordAlert = function (event) {
+  $('#change-password-alert').addClass('hidden')
 }
 
 // const onUpdateRecipe = (event) => {
@@ -142,6 +153,7 @@ const addHandlers = () => {
   $('#sign-up-close-button').on('click', closeSignUpWindow)
   $('#sign-in-close-X').on('click', closeSignInWindow)
   $('#sign-in-close-button').on('click', closeSignInWindow)
+  $('#exit-all-recipes-modal').on('click', hidePasswordAlert)
 }
 
 module.exports = {

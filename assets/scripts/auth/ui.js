@@ -85,11 +85,15 @@ const signInFailure = (error) => {
 const changePasswordSuccess = (response) => {
   // console.log('response is ', response)
   resetForms()
+  $('#change-password-alert').removeClass('hidden')
+  $('#change-password-alert').text('change password success!')
 }
 
 const changePasswordFailure = (error) => {
   console.error(error)
   resetForms()
+  $('#change-password-alert').removeClass('hidden')
+  $('#change-password-alert').text('change password FAIL!')
 }
 
 const signOutSuccess = (response) => {
@@ -107,6 +111,7 @@ const signOutSuccess = (response) => {
   $('#create-recipe').addClass('hidden')
   $('.content').empty()
   $('.content').hide()
+  $('#change-password-alert').addClass('hidden')
 }
 
 const signOutFailure = (error) => {
@@ -123,6 +128,7 @@ const noEmptyUpdates = (input) => {
 const onUpdateRecipe = (event) => {
   event.preventDefault()
   resetForms()
+  $('#change-password-alert').addClass('hidden')
   const data = getFormFields(event.target)
   // console.log(data)
   const newRecipe = $(event.target).attr('data-id')
@@ -155,6 +161,7 @@ const refreshRecipesList = (data) => {
 const onDeleteRecipe = (event) => {
   event.preventDefault()
   // store.recipeLists = data.recipes
+  $('#change-password-alert').addClass('hidden')
   const removeRecipe = $(event.target).attr('data-id')
   store.recipeLists = store.recipeLists.filter((recipe) => {
     return String(recipe.id) !== String(removeRecipe)
@@ -174,6 +181,7 @@ const onDeleteRecipe = (event) => {
 const getAllRecipesSuccess = (data) => {
   // console.log(data)
   // console.log('getAllRecipesSuccess fired')
+  $('#change-password-alert').addClass('hidden')
   store.recipeLists = data.recipes
   refreshRecipesList()
   resetForms()
@@ -193,17 +201,20 @@ const getAllRecipesFailure = (error) => {
 const clearRecipes = () => {
   $('.content').empty()
   $('#edit-delete-alert').text('click below to see all your recipes! you can update or delete them here as well')
+  $('#change-password-alert').addClass('hidden')
 }
 
 const clearOneRecipe = () => {
   $('.one-recipe-content').empty()
   $('#getOneRecipe').trigger('reset')
+  $('#change-password-alert').addClass('hidden')
 }
 
 const createRecipeSuccess = (response) => {
   // console.log('create recipe success response is', response)
   // $('#recipe-container').removeClass('hidden')
   store.recipe = response.recipe
+  $('#change-password-alert').addClass('hidden')
   // console.log('response.recipe is ', response.recipe)
   refreshRecipesList()
   document.getElementById('createRecipe').reset()
@@ -214,6 +225,7 @@ const createRecipeFailure = (error) => {
   console.error(error)
   // console.log('recipe create failed')
   $('#create-recipe-alert').text('recipe not created. you may not have filled out a field')
+  $('#change-password-alert').addClass('hidden')
 }
 
 const createIngredientSuccess = (response) => {
@@ -232,6 +244,7 @@ const getRecipeSuccess = (data) => {
   // console.log(data.recipe)
   const showOneRecipeHtml = showOneRecipeTemplate({ recipe: data.recipe })
   $('.one-recipe-content').html(showOneRecipeHtml)
+  $('#change-password-alert').addClass('hidden')
 }
 
 const getRecipeFailure = (error) => {
@@ -249,17 +262,18 @@ const updateRecipeSuccess = (response) => {
 }
 
 const updateRecipeFailure = (data) => {
-  console.error('uh what' + data)
+  // console.error('uh what' + data)
 }
 
 const deleteRecipeSuccess = (data) => {
   // console.log('response is', data)
   resetForms()
   $('#edit-delete-alert').text('delete success!')
+  $('#change-password-alert').addClass('hidden')
 }
 
 const deleteRecipeFailure = (data) => {
-  console.error('this did not work' + data)
+  // console.error('this did not work' + data)
 }
 
 module.exports = {

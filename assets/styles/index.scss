@@ -33,6 +33,26 @@ h1, p {
   opacity: 0.7;
 }
 
+#change-password-alert {
+  background: white;
+  padding: 9px;
+  width: 300px;
+  height: 50px;
+  opacity: 0.7;
+  font-size: 20px;
+  text-align: center;
+  float: right;
+}
+
+.appear {
+  opacity: 1;
+  transition: opacity 500ms;
+}
+
+.disappear {
+  opacity: 0;
+}
+
 .button-styling {
   background: white;
   opacity: 0.7;
