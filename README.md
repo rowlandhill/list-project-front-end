@@ -27,6 +27,17 @@ Some of the unsolved problems are:
   - Eventually, I want a function that will scale the recipes as I desire (reduce or increase serving size)
   - I also want to eventually be able to access public recipes, with pictures of the finish products/meals.
 
+## Technologies used:
+
+  - Ruby
+  - PostgreSQL
+  - JavaScript
+  - jQuery
+  - HTML
+  - CSS
+  - SCSS
+  - Bootstrap
+  - Handlebars  
 
 ## Wireframe:
 
