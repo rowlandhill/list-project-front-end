@@ -100,6 +100,11 @@ const onCreateIngredient = function (event) {
     .catch(ui.createIngredientFailure)
 }
 
+// const noEmptyGetRecipe = (input) => {
+//   if (/[a-z]/.test(input.toLowerCase()) === false) { return false }
+//   return true
+// }
+
 const onGetRecipe = function (event) {
   // console.log(data)
   event.preventDefault()
