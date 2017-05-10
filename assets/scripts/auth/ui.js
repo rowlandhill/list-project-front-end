@@ -74,6 +74,7 @@ const signInSuccess = (data) => {
   $('#create-recipe').removeClass('hidden')
   $('#new-recipe').removeClass('hidden')
   $('.content').show()
+  $('#change-password-alert').removeClass('hidden')
   $('#change-password-alert').text('you\'ve signed in!')
 }
 
